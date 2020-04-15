@@ -63,6 +63,7 @@ transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0, 0, 0 )
 [node name="PivotPoint" type="Spatial" parent="pyramid2"]
 
 [node name="mesh" parent="pyramid2/PivotPoint" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Tween" type="Tween" parent="pyramid2/PivotPoint/mesh"]
 

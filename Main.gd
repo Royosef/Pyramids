@@ -14,7 +14,6 @@ func count_nodes(type):
 	
 	for node in get_children():
 		if(node is type):
-			print(node)
 			count += 1
 
 	return count
