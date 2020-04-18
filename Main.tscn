@@ -1,16 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://pyramid.tscn" type="PackedScene" id=1]
-[ext_resource path="res://cube.tscn" type="PackedScene" id=2]
-[ext_resource path="res://cube.gd" type="Script" id=3]
-[ext_resource path="res://pyramid.gd" type="Script" id=4]
-[ext_resource path="res://Main.gd" type="Script" id=5]
+[ext_resource path="res://scenes/cube.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/cube.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=5]
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 5 )
 
 [node name="Camera0" type="Camera" parent="."]
-transform = Transform( -1.62921e-07, 0, 1, 0, 1, 0, -1, 0, -1.62921e-07, 5.87936, 0, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.801 )
 current = true
 
 [node name="Camera1" type="Camera" parent="."]
@@ -28,27 +26,3 @@ script = ExtResource( 3 )
 [node name="mesh" parent="cube/PivotPoint" instance=ExtResource( 2 )]
 
 [node name="Tween" type="Tween" parent="cube/PivotPoint/mesh"]
-
-[node name="pyramid" type="Spatial" parent="."]
-visible = false
-script = ExtResource( 4 )
-
-[node name="PivotPoint" type="Spatial" parent="pyramid"]
-
-[node name="mesh" parent="pyramid/PivotPoint" instance=ExtResource( 1 )]
-transform = Transform( 1, -1.42109e-14, -5.96046e-08, 7.10543e-15, 1, 0, 0, 0, 1, 0, 0, 0 )
-
-[node name="Tween" type="Tween" parent="pyramid/PivotPoint/mesh"]
-
-[node name="pyramid2" type="Spatial" parent="."]
-visible = false
-
-[node name="PivotPoint" type="Spatial" parent="pyramid2"]
-
-[node name="mesh" parent="pyramid2/PivotPoint" instance=ExtResource( 1 )]
-transform = Transform( 1, -1.42109e-14, -5.96046e-08, 7.10543e-15, 1, 0, 0, 0, 1, 0, 0, 0 )
-
-[node name="Tween" type="Tween" parent="pyramid2/PivotPoint/mesh"]
-[connection signal="tween_all_completed" from="cube/PivotPoint/mesh/Tween" to="cube" method="_on_Tween_tween_all_completed"]
-[connection signal="tween_all_completed" from="pyramid/PivotPoint/mesh/Tween" to="pyramid" method="_on_Tween_tween_all_completed"]
-[connection signal="tween_all_completed" from="pyramid2/PivotPoint/mesh/Tween" to="pyramid2" method="_on_Tween_tween_all_completed"]
